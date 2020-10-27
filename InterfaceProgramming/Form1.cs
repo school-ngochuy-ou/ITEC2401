@@ -13,6 +13,5 @@ namespace InterfaceProgramming {
         public Form1() {
             InitializeComponent();
         }
-
     }
 }
