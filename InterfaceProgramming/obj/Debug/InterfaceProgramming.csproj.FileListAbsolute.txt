@@ -1,0 +1,10 @@
+C:\Users\Administrator\source\repos\ITEC2401\InterfaceProgramming\bin\Debug\InterfaceProgramming.exe.config
+C:\Users\Administrator\source\repos\ITEC2401\InterfaceProgramming\bin\Debug\InterfaceProgramming.exe
+C:\Users\Administrator\source\repos\ITEC2401\InterfaceProgramming\bin\Debug\InterfaceProgramming.pdb
+C:\Users\Administrator\source\repos\ITEC2401\InterfaceProgramming\obj\Debug\InterfaceProgramming.csprojAssemblyReference.cache
+C:\Users\Administrator\source\repos\ITEC2401\InterfaceProgramming\obj\Debug\InterfaceProgramming.Properties.Resources.resources
+C:\Users\Administrator\source\repos\ITEC2401\InterfaceProgramming\obj\Debug\InterfaceProgramming.csproj.GenerateResource.cache
+C:\Users\Administrator\source\repos\ITEC2401\InterfaceProgramming\obj\Debug\InterfaceProgramming.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\source\repos\ITEC2401\InterfaceProgramming\obj\Debug\InterfaceProgramming.exe
+C:\Users\Administrator\source\repos\ITEC2401\InterfaceProgramming\obj\Debug\InterfaceProgramming.pdb
+C:\Users\Administrator\source\repos\ITEC2401\InterfaceProgramming\obj\Debug\InterfaceProgramming.Chapter2.Chaper2Task1.resources

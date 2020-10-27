@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using InterfaceProgramming.Chapter2;
 
 namespace InterfaceProgramming {
     static class Program {
@@ -13,7 +11,7 @@ namespace InterfaceProgramming {
         static void Main() {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new Chaper2Task1());
         }
     }
 }
