@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
 using System.Windows.Forms;
 
 namespace InterfaceProgramming.Chapter2 {
@@ -27,7 +25,11 @@ namespace InterfaceProgramming.Chapter2 {
             TextBox textBox = (TextBox) sender;
             string textVal = textBox.Text.TrimStart(new Char[] { '0' } );
             
-            if (!textVal.All(Char.IsDigit) || textVal.Length == 0) {
+            if (textVal.Length == 0) {
+                return;
+            }
+
+            if (!textVal.All(Char.IsDigit)) {
                 textVal = "0";
 
                 return;
@@ -37,7 +39,7 @@ namespace InterfaceProgramming.Chapter2 {
 
             if (val > Int32.MaxValue) {
                 textBox.Text = "0";
-                moveCursorToEnd(textBox);
+                Program.cursorUtils.cursorToEnd(textBox);
 
                 return;
             }
@@ -54,7 +56,7 @@ namespace InterfaceProgramming.Chapter2 {
 
             if (textBox.Text.Length > 1) {
                 textBox.Text = textBox.Text.ElementAt(1).ToString();
-                moveCursorToEnd(textBox);
+                Program.cursorUtils.cursorToEnd(textBox);
             }
 
             if (textBox.Text.Length > 0) {
@@ -70,10 +72,6 @@ namespace InterfaceProgramming.Chapter2 {
             this.codeResult.Text = "" + this.converter.toCode();
         }
 
-        public void moveCursorToEnd(TextBox target) {
-            target.SelectionStart = target.Text.Length;
-            target.SelectionLength = 0;
-        }
     }
 
     class AsciiConverter {
