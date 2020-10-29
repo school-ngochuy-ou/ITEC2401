@@ -4,7 +4,7 @@ using System.Windows.Forms;
 namespace InterfaceProgramming.Chapter2 {
     public partial class RandomNumberGeneratorGame : Form {
 
-        private RandomNumberGenerator generator = new RandomNumberGenerator(0, 0 ,0);
+        private RandomNumberGenerator generator = new RandomNumberGenerator(0, 0 , 0, 10);
 
         private int score = 0;
 
@@ -45,18 +45,27 @@ namespace InterfaceProgramming.Chapter2 {
 
         public int c { get; set; }
 
+        public int max;
+
         public RandomNumberGenerator(int a, int b, int c) {
             this.a = a;
             this.b = b;
             this.c = c;
         }
 
+        public RandomNumberGenerator(int a, int b, int c, int max) {
+            this.a = a;
+            this.b = b;
+            this.c = c;
+            this.max = max;
+        }
+
         public void generateRandom() {
             Random rand = new Random();
 
-            this.a = rand.Next(0, 9);
-            this.b = rand.Next(0, 9);
-            this.c = rand.Next(0, 9);
+            this.a = rand.Next(0, max);
+            this.b = rand.Next(0, max);
+            this.c = rand.Next(0, max);
         }
 
         public Boolean numbersAreEqual() {
