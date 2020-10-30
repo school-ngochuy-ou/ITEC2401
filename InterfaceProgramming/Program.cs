@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
-using InterfaceProgramming.Chapter2;
-using InterfaceProgramming.Chapter3;
+using InterfaceProgramming.Chapter4;
 using InterfaceProgramming.Utils;
 
 namespace InterfaceProgramming {
@@ -16,7 +15,7 @@ namespace InterfaceProgramming {
         static void Main() {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new CircleShape());
+            Application.Run(new ComboListBox());
         }
     }
 }
