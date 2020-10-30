@@ -1,7 +1,7 @@
 ﻿using System;
-using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using InterfaceProgramming.Chapter2;
+using InterfaceProgramming.Chapter3;
 using InterfaceProgramming.Utils;
 
 namespace InterfaceProgramming {
@@ -16,7 +16,7 @@ namespace InterfaceProgramming {
         static void Main() {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new SimpleCalculator());
+            Application.Run(new GuessTheResultGame());
         }
     }
 }

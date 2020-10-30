@@ -70,6 +70,12 @@
     <Compile Include="Chapter2\SimpleCalculator.Designer.cs">
       <DependentUpon>SimpleCalculator.cs</DependentUpon>
     </Compile>
+    <Compile Include="Chapter3\GuessTheResultGame.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Chapter3\GuessTheResultGame.Designer.cs">
+      <DependentUpon>GuessTheResultGame.cs</DependentUpon>
+    </Compile>
     <Compile Include="Menu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,6 +97,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Chapter2\SimpleCalculator.resx">
       <DependentUpon>SimpleCalculator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Chapter3\GuessTheResultGame.resx">
+      <DependentUpon>GuessTheResultGame.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
