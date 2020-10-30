@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Text.RegularExpressions;
 
 namespace InterfaceProgramming.Utils {
@@ -22,6 +23,10 @@ namespace InterfaceProgramming.Utils {
     }
 
     class NumberUtils {
+
+        public Boolean isNumber(String val) {
+            return val.All(Char.IsDigit);
+        }
 
         public Boolean isAcceptableFloating(string input) {
             Regex reg = new Regex(@"^(-{1})?(\d+(\.{1})?)?$");

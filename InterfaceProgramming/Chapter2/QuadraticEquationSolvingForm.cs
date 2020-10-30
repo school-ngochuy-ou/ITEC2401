@@ -1,7 +1,6 @@
 ﻿using InterfaceProgramming.Utils;
 using System;
 using System.Drawing;
-using System.Linq.Expressions;
 using System.Windows.Forms;
 
 namespace InterfaceProgramming.Chapter2 {
@@ -135,13 +134,13 @@ namespace InterfaceProgramming.Chapter2 {
                 return new SolverResult(-c / b, -c / b, SolverResult.ResultType.SINGULAR);
             }
 
-            double derival = Math.Pow(b, 2) - 4 * a * c;
+            double delta = Math.Pow(b, 2) - 4 * a * c;
 
-            if (derival == 0) {
+            if (delta == 0) {
                 return new SolverResult(-b / 2 * a, -b / 2 * a, SolverResult.ResultType.SINGULAR);
             }
 
-            return new SolverResult((-b + Math.Sqrt(derival)) / (2 * a), (-b - Math.Sqrt(derival)) / (2 * a), SolverResult.ResultType.PAIRED);
+            return new SolverResult((-b + Math.Sqrt(delta)) / (2 * a), (-b - Math.Sqrt(delta)) / (2 * a), SolverResult.ResultType.PAIRED);
         }
 
     }

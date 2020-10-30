@@ -16,7 +16,7 @@ namespace InterfaceProgramming {
         static void Main() {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new GuessTheResultGame());
+            Application.Run(new TriangleDetector());
         }
     }
 }
