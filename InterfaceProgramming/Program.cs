@@ -15,7 +15,7 @@ namespace InterfaceProgramming {
         static void Main() {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ComboListBox());
+            Application.Run(new SimpleEditor());
         }
     }
 }

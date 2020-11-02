@@ -7,9 +7,9 @@ using System.Windows.Forms;
 namespace InterfaceProgramming.Chapter4 {
     public partial class ComboListBox : Form {
 
-        private LeftPanel leftPanel = new LeftPanel(new List<String>(new string[] { "element1", "element2", "element3" }));
+        private LeftPanel leftPanel = new LeftPanel(new List<String>(new String[] { "element1", "element2", "element3" }));
 
-        private RightPanel rightPanel = new RightPanel(new List<String>(new string[] { "element1", "element2", "element3" }));
+        private RightPanel rightPanel = new RightPanel(new List<String>(new String[] { "element1", "element2", "element3" }));
 
         public ComboListBox() {
             InitializeComponent();
