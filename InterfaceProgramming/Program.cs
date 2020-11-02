@@ -15,7 +15,7 @@ namespace InterfaceProgramming {
         static void Main() {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new SimpleEditor());
+            Application.Run(new Chapter4.CommonDialog());
         }
     }
 }
