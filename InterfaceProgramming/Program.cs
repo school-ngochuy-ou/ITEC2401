@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Windows.Forms;
-using InterfaceProgramming.Chapter5;
 using InterfaceProgramming.Chapter6;
 using InterfaceProgramming.Utils;
 
@@ -16,7 +15,7 @@ namespace InterfaceProgramming {
         static void Main() {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new RandomNumbers());
+            Application.Run(new StudentManagement());
         }
     }
 }
