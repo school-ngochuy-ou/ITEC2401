@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
-using InterfaceProgramming.Chapter4;
+using InterfaceProgramming.Chapter5;
 using InterfaceProgramming.Utils;
 
 namespace InterfaceProgramming {
@@ -15,7 +15,7 @@ namespace InterfaceProgramming {
         static void Main() {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Chapter4.CommonDialog());
+            Application.Run(new BallGame());
         }
     }
 }

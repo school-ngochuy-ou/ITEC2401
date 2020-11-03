@@ -100,11 +100,29 @@
     <Compile Include="Chapter4\CommonDialog.Designer.cs">
       <DependentUpon>CommonDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="Chapter4\KittenPhoto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Chapter4\KittenPhoto.Designer.cs">
+      <DependentUpon>KittenPhoto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Chapter4\MyPhotos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Chapter4\MyPhotos.Designer.cs">
+      <DependentUpon>MyPhotos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Chapter4\SimpleEditor.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Chapter4\SimpleEditor.Designer.cs">
       <DependentUpon>SimpleEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Chapter5\BallGame.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Chapter5\BallGame.Designer.cs">
+      <DependentUpon>BallGame.cs</DependentUpon>
     </Compile>
     <Compile Include="Menu.cs">
       <SubType>Form</SubType>
@@ -143,8 +161,17 @@
     <EmbeddedResource Include="Chapter4\CommonDialog.resx">
       <DependentUpon>CommonDialog.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Chapter4\KittenPhoto.resx">
+      <DependentUpon>KittenPhoto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Chapter4\MyPhotos.resx">
+      <DependentUpon>MyPhotos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Chapter4\SimpleEditor.resx">
       <DependentUpon>SimpleEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Chapter5\BallGame.resx">
+      <DependentUpon>BallGame.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -154,6 +181,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -168,6 +196,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Chapter4\kitten.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Chapter5\V200W_2.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
