@@ -22,3 +22,4 @@ C:\Users\Administrator\source\repos\ITEC2401\InterfaceProgramming\obj\Debug\Inte
 C:\Users\Administrator\source\repos\ITEC2401\InterfaceProgramming\obj\Debug\InterfaceProgramming.Chapter5.BallGame.resources
 C:\Users\Administrator\source\repos\ITEC2401\InterfaceProgramming\obj\Debug\InterfaceProgramming.Chapter6.RandomNumbers.resources
 C:\Users\Administrator\source\repos\ITEC2401\InterfaceProgramming\obj\Debug\InterfaceProgramming.Chapter6.StudentManagement.resources
+C:\Users\Administrator\source\repos\ITEC2401\InterfaceProgramming\obj\Debug\InterfaceProgramming.Chapter7.ListViewDemo.resources

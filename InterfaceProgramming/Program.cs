@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
-using InterfaceProgramming.Chapter6;
+using InterfaceProgramming.Chapter7;
 using InterfaceProgramming.Utils;
 
 namespace InterfaceProgramming {
@@ -15,7 +15,7 @@ namespace InterfaceProgramming {
         static void Main() {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new StudentManagement());
+            Application.Run(new ListViewDemo());
         }
     }
 }
