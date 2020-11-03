@@ -124,6 +124,12 @@
     <Compile Include="Chapter5\BallGame.Designer.cs">
       <DependentUpon>BallGame.cs</DependentUpon>
     </Compile>
+    <Compile Include="Chapter6\PrimeStat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Chapter6\PrimeStat.Designer.cs">
+      <DependentUpon>PrimeStat.cs</DependentUpon>
+    </Compile>
     <Compile Include="Menu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -172,6 +178,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Chapter5\BallGame.resx">
       <DependentUpon>BallGame.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Chapter6\PrimeStat.resx">
+      <DependentUpon>PrimeStat.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
