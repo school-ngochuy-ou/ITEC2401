@@ -6,7 +6,7 @@ using System.Windows.Forms;
 namespace InterfaceProgramming.Chapter2 {
     public partial class QuadraticEquationSolvingForm : Form {
 
-        private CursorUtils cursorUtils = Program.cursorUtils;
+        private CursorUtils cursorUtils = new CursorUtils();
 
         private NumberUtils numberUtils = new NumberUtils();
 

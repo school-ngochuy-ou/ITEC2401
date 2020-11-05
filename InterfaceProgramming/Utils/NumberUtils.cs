@@ -26,7 +26,8 @@ namespace InterfaceProgramming.Utils {
     class NumberUtils {
 
         public Boolean isNumber(String val) {
-            return val.All(Char.IsDigit);
+
+            return val.Length == 0 ? false : val.All(Char.IsDigit);
         }
 
         public Boolean isAcceptableFloating(string input) {
