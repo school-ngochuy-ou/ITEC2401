@@ -12,7 +12,7 @@ namespace InterfaceProgramming {
         static void Main() {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new CompanyWeeklySales());
+            Application.Run(new DrawShapes());
         }
     }
 }

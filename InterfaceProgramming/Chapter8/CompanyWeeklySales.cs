@@ -23,8 +23,8 @@ namespace InterfaceProgramming.Chapter8 {
 
         private void CompanyWeeklySales_Paint(object sender, PaintEventArgs e) {
             Pen pen = new Pen(Color.Black, 2);
-            float x1 = mondayTextBox.Location.X, y1 = this.Height - 50;
-            float x2 = fridayTextBox.Location.X + fridayTextBox.Size.Width, y2 = this.Height - 50;
+            float x1 = mondayTextBox.Location.X, y1 = this.Height - paddingBottom;
+            float x2 = fridayTextBox.Location.X + fridayTextBox.Size.Width, y2 = this.Height - paddingBottom;
             
             e.Graphics.DrawLine(pen, x1, y1, x2, y2);
 
@@ -42,21 +42,21 @@ namespace InterfaceProgramming.Chapter8 {
         }
 
         private void generateBtn_Click(object sender, System.EventArgs e) {
-            String[] values = new String[] {
+            String[] stringValues = new String[] {
                 mondayTextBox.Text, tuesdayTextBox.Text,
                 wednesdayTextBox.Text, thursdayTextBox.Text,
                 fridayTextBox.Text
             };
-            bool valid = values.All(nu.isNumber);
+            bool valid = stringValues.All(nu.isNumber);
 
             if (!valid) {
                 return;
             }
 
             float[] vals = new float[] {
-                float.Parse(values[0]), float.Parse(values[1]),
-                float.Parse(values[2]), float.Parse(values[3]),
-                float.Parse(values[4])
+                float.Parse(stringValues[0]), float.Parse(stringValues[1]),
+                float.Parse(stringValues[2]), float.Parse(stringValues[3]),
+                float.Parse(stringValues[4])
             };
             float maxVal = vals.Max();
             int[] proportions = new int[] {
