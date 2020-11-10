@@ -1,8 +1,5 @@
 ﻿using System;
 using System.IO;
-using System.Security;
-using System.Security.Permissions;
-using System.Security.Principal;
 using System.Windows.Forms;
 
 namespace InterfaceProgramming.Chapter7 {
@@ -75,10 +72,6 @@ namespace InterfaceProgramming.Chapter7 {
             }
 
             foreach (FileInfo fileInfo in fileInfos) {
-                if (!fileInfo.Exists) {
-                    continue;
-                }
-
                 item = new ListViewItem(fileInfo.Name, 1);
                 subItems = new ListViewItem.ListViewSubItem[] {
                     new ListViewItem.ListViewSubItem(item, fileInfo.Length.ToString()),
