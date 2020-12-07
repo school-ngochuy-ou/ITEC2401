@@ -1,8 +1,0 @@
-﻿namespace GroupProject.models {
-
-	enum WordType {
-		NOUN, VERB, ADJECTIVE, ADVERB,
-		PREPOSITION, PRONOUN, DETERMINER, CONJUNCTION, INTERJECTION
-	}
-
-}
