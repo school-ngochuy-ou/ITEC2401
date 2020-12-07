@@ -140,5 +140,9 @@ namespace InterfaceProgramming.Chapter4 {
         private void tileVerticalToolStripMenuItem_Click(object sender, EventArgs e) {
 
         }
+
+        private void MyPhotos_FormClosed(object sender, FormClosedEventArgs e) {
+            Program.menuForm.Show();
+        }
     }
 }

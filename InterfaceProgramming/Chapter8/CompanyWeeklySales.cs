@@ -78,5 +78,9 @@ namespace InterfaceProgramming.Chapter8 {
             rects[4] = new Rectangle(fridayTextBox.Location.X, y + (maxChartHeight - proportions[4]), textBoxWidth, proportions[4]);
             this.Refresh();
         }
+
+        private void CompanyWeeklySales_FormClosed(object sender, FormClosedEventArgs e) {
+            Program.menuForm.Show();
+        }
     }
 }

@@ -151,6 +151,10 @@ namespace InterfaceProgramming.Chapter4 {
             rightPanel.selectedColor = Color.FromName(box.SelectedItem.ToString());
             rightListBox.BackColor = rightPanel.selectedColor;
         }
+
+        private void ComboListBox_FormClosed(object sender, FormClosedEventArgs e) {
+            Program.menuForm.Show();
+        }
     }
 
     class CustomPanel {

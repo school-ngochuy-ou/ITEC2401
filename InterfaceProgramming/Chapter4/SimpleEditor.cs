@@ -177,5 +177,9 @@ namespace InterfaceProgramming.Chapter4 {
                 return;
             }
         }
+
+        private void SimpleEditor_FormClosed(object sender, FormClosedEventArgs e) {
+            Program.menuForm.Show();
+        }
     }
 }

@@ -35,6 +35,9 @@ namespace InterfaceProgramming.Chapter2 {
             scoreBox.Text = score.ToString();
         }
 
+        private void RandomNumberGeneratorGame_FormClosed(object sender, FormClosedEventArgs e) {
+            Program.menuForm.Show();
+        }
     }
 
     class RandomNumberGenerator {

@@ -9,7 +9,7 @@ namespace InterfaceProgramming.Chapter6 {
 
         private Student model = new Student();
 
-        private BindingList<Student> list = new BindingList<Student>(new Student[]{ new Student("1101", "Tran", "Huy"), new Student("1102", "Dang", "Anh"), new Student("1103", "Zych", "Fuct") });
+        private List<Student> list = new List<Student>(new Student[]{ new Student("1101", "Tran", "Huy"), new Student("1102", "Dang", "Anh"), new Student("1103", "Zych", "Fuct") });
 
         public StudentManagement() {
             InitializeComponent();
@@ -39,7 +39,19 @@ namespace InterfaceProgramming.Chapter6 {
         }
 
         private void renderStudentList() {
-            listView.DataSource = list;
+            BindingList<Student> source = new BindingList<Student>();
+
+            foreach (Student s in list) {
+                source.Add(s);
+            }
+
+            listView.DataSource = source;
+        }
+
+        private void renderModel() {
+            idInput.Text = model.id;
+            firstNameInput.Text = model.firstName;
+            lastNameInput.Text = model.lastName;
         }
 
         private void idInput_TextChanged(object sender, EventArgs e) {
@@ -70,6 +82,7 @@ namespace InterfaceProgramming.Chapter6 {
             list.Add(new Student(model));
             model = new Student();
             renderStudentList();
+            renderModel();
             return;
         }
 
@@ -101,6 +114,10 @@ namespace InterfaceProgramming.Chapter6 {
             }
 
             listView.DataSource = elements;
+        }
+
+        private void StudentManagement_FormClosed(object sender, FormClosedEventArgs e) {
+            Program.menuForm.Show();
         }
     }
 

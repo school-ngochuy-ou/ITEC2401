@@ -72,5 +72,9 @@ namespace InterfaceProgramming.Chapter6 {
 
             return total;
         }
+
+        private void RandomNumbers_FormClosed(object sender, FormClosedEventArgs e) {
+            Program.menuForm.Show();
+        }
     }
 }

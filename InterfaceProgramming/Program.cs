@@ -4,6 +4,8 @@ using InterfaceProgramming.Chapter8;
 
 namespace InterfaceProgramming {
     static class Program {
+        
+        public static Menu menuForm;
 
         /// <summary>
         /// The main entry point for the application.
@@ -12,7 +14,12 @@ namespace InterfaceProgramming {
         static void Main() {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new DrawShapes());
+
+            Menu menu = new Menu();
+
+            Program.menuForm = menu;
+
+            Application.Run(menu);
         }
     }
 }

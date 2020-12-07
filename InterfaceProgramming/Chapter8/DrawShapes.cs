@@ -146,6 +146,9 @@ namespace InterfaceProgramming.Chapter8 {
             options.Show();
         }
 
+        private void DrawShapes_FormClosed(object sender, FormClosedEventArgs e) {
+            Program.menuForm.Show();
+        }
     }
 
     public enum CursorState {

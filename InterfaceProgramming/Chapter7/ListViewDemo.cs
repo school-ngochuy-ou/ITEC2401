@@ -142,5 +142,9 @@ namespace InterfaceProgramming.Chapter7 {
         private void titleRadioBtn_CheckedChanged(object sender, EventArgs e) {
             listView.View = View.Tile;
         }
+
+        private void ListViewDemo_FormClosed(object sender, FormClosedEventArgs e) {
+            Program.menuForm.Show();
+        }
     }
 }

@@ -111,6 +111,10 @@ namespace InterfaceProgramming.Chapter3 {
             result += $"The circle has the area of {circle.getArea()}.";
             resultLabel.Text = result;
         }
+
+        private void CircleShape_FormClosed(object sender, FormClosedEventArgs e) {
+            Program.menuForm.Show();
+        }
     }
 
     class Point {

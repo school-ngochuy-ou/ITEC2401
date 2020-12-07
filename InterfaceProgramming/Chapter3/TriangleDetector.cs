@@ -86,6 +86,10 @@ namespace InterfaceProgramming.Chapter3 {
 
             resultLabel.Text = result;
         }
+
+        private void TriangleDetector_FormClosed(object sender, FormClosedEventArgs e) {
+            Program.menuForm.Show();
+        }
     }
 
     class Triangle {

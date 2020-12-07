@@ -92,6 +92,10 @@ namespace InterfaceProgramming.Chapter2 {
             renderEquation();
             return;
         }
+
+        private void SimpleCalculator_FormClosed(object sender, FormClosedEventArgs e) {
+            Program.menuForm.Show();
+        }
     }
 
 }

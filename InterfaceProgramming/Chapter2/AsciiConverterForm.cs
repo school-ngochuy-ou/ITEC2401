@@ -4,13 +4,13 @@ using System.Linq;
 using System.Windows.Forms;
 
 namespace InterfaceProgramming.Chapter2 {
-    public partial class Chaper2Task1 : Form {
+    public partial class AsciiConverterForm : Form {
 
         private CursorUtils cursorUtils = new CursorUtils();
 
         private AsciiConverter converter;
 
-        public Chaper2Task1() {
+        public AsciiConverterForm() {
             InitializeComponent();
             
             this.converter = new AsciiConverter(65, 'a');
@@ -18,10 +18,6 @@ namespace InterfaceProgramming.Chapter2 {
             this.charInput.Text = converter.character.ToString();
             this.codeResult.Text = converter.toCode().ToString();
             this.charResult.Text = converter.toChar().ToString();
-        }
-
-        private void Chaper2Task1_Load(object sender, EventArgs e) {
-
         }
 
         private void codeInput_TextChanged(object sender, EventArgs e) {
@@ -75,6 +71,9 @@ namespace InterfaceProgramming.Chapter2 {
             this.codeResult.Text = "" + this.converter.toCode();
         }
 
+        private void AsciiConverterForm_FormClosed(object sender, FormClosedEventArgs e) {
+            Program.menuForm.Show();
+        }
     }
 
     class AsciiConverter {

@@ -103,5 +103,9 @@ namespace InterfaceProgramming.Chapter4 {
             textBox.ForeColor = Color.Black;
             textBox.BackColor = Color.White;
         }
+
+        private void CommonDialog_FormClosed(object sender, FormClosedEventArgs e) {
+            Program.menuForm.Show();
+        }
     }
 }

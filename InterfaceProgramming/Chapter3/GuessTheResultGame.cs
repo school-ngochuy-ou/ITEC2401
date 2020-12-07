@@ -102,6 +102,10 @@ namespace InterfaceProgramming.Chapter3 {
 
             return;
         }
+
+        private void GuessTheResultGame_FormClosed(object sender, FormClosedEventArgs e) {
+            Program.menuForm.Show();
+        }
     }
 
     class FractionEquation {

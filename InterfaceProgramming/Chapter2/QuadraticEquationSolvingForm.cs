@@ -105,6 +105,10 @@ namespace InterfaceProgramming.Chapter2 {
                     return;
             }
         }
+
+        private void QuadraticEquationSolvingForm_FormClosed(object sender, FormClosedEventArgs e) {
+            Program.menuForm.Show();
+        }
     }
 
     class QuadraticEquationSolver {
@@ -135,6 +139,10 @@ namespace InterfaceProgramming.Chapter2 {
             }
 
             double delta = Math.Pow(b, 2) - 4 * a * c;
+
+            if (delta < 0) {
+                return new SolverResult(0, 0, SolverResult.ResultType.NAN);
+            }
 
             if (delta == 0) {
                 return new SolverResult(-b / 2 * a, -b / 2 * a, SolverResult.ResultType.SINGULAR);
