@@ -1,9 +1,12 @@
-﻿using System;
+﻿using InterfaceProgramming.Utils;
+using System;
 using System.Linq;
 using System.Windows.Forms;
 
 namespace InterfaceProgramming.Chapter2 {
     public partial class Chaper2Task1 : Form {
+
+        private CursorUtils cursorUtils = new CursorUtils();
 
         private AsciiConverter converter;
 
@@ -39,7 +42,7 @@ namespace InterfaceProgramming.Chapter2 {
 
             if (val > Int32.MaxValue) {
                 textBox.Text = "0";
-                Program.cursorUtils.cursorToEnd(textBox);
+                cursorUtils.cursorToEnd(textBox);
 
                 return;
             }
@@ -56,7 +59,7 @@ namespace InterfaceProgramming.Chapter2 {
 
             if (textBox.Text.Length > 1) {
                 textBox.Text = textBox.Text.ElementAt(1).ToString();
-                Program.cursorUtils.cursorToEnd(textBox);
+                cursorUtils.cursorToEnd(textBox);
             }
 
             if (textBox.Text.Length > 0) {

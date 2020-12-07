@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Windows.Forms;
-using InterfaceProgramming.Chapter7;
-using InterfaceProgramming.Utils;
+using InterfaceProgramming.Chapter8;
 
 namespace InterfaceProgramming {
     static class Program {
-
-        public static CursorUtils cursorUtils = new CursorUtils();
 
         /// <summary>
         /// The main entry point for the application.
@@ -15,7 +12,7 @@ namespace InterfaceProgramming {
         static void Main() {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ListViewDemo());
+            Application.Run(new DrawShapes());
         }
     }
 }
