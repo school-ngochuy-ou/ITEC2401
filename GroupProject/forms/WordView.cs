@@ -3,7 +3,6 @@ using System.Windows.Forms;
 using System.Collections.Generic;
 using System.Linq;
 using GroupProject.models;
-using System.Text.RegularExpressions;
 
 namespace GroupProject.forms {
 
@@ -74,12 +73,6 @@ namespace GroupProject.forms {
 			}
 
 			if (parent != null) {
-				String ex = Regex.Replace(examplesTextBox.Text, $"{Environment.NewLine}+", Environment.NewLine);
-
-				foreach (String s in Regex.Split(ex, Environment.NewLine)) {
-					word.examples.Add(s.Replace(Environment.NewLine, String.Empty));
-				}
-
 				if (state == ViewState.CREATE) {
 					parent.addWord(word);
 					Close();
@@ -104,8 +97,7 @@ namespace GroupProject.forms {
 			nameTextBox.Text = word.name;
 			typeComboBox.SelectedItem = word.type;
 			definitionTextBox.Text = word.definition;
-			translateChoiceTextBox.Text = word.translation == null ? "" : word.translation.name;
-			examplesTextBox.AppendText(String.Join(Environment.NewLine, word.examples));
+			/*translateChoiceTextBox.Text = word.translation == null ? "" : word.translation.name;*/
 		}
 
 		private void languageComboBox_SelectedIndexChanged(object sender, EventArgs e) {
@@ -118,9 +110,8 @@ namespace GroupProject.forms {
 			}
 
 			Language language = (Language) languageComboBox.SelectedItem;
-			DictionarySource source = Program.dataSource;
 
-			dict = source.getDictionary(language);
+			dict = Program.store.getCollection(language);
 			renderDictionary();
 		}
 
@@ -141,8 +132,8 @@ namespace GroupProject.forms {
 				return;
 			}
 
-			word.translation = listBox.SelectedItem as Word;
-			translateChoiceTextBox.Text = word.translation.name;
+			/*word.translation = listBox.SelectedItem as Word;*/
+			translateChoiceTextBox.Text = (listBox.SelectedItem as Word).name;
 		}
 
 		private void searchTextBox_TextChanged(object sender, EventArgs e) {
@@ -156,7 +147,7 @@ namespace GroupProject.forms {
 			String keyword = searchTextBox.Text;
 
 			if (keyword.Length == 0) {
-				dict = Program.dataSource.getDictionary((Language) languageComboBox.SelectedItem);
+				dict = Program.store.getCollection((Language) languageComboBox.SelectedItem);
 				renderDictionary();
 				return;
 			}

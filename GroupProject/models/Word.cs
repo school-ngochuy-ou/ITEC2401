@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace GroupProject.models {
 
@@ -49,11 +50,11 @@ namespace GroupProject.models {
 			}
 		}
 
-		public List<String> examples = new List<String>();
+		public List<Word> translation = null;
 
-		public Word translation = null;
+		public String translationRef { get; set; }
 
-		public List<Word> references = new List<Word>();
+		public Dictionary<Language, Dictionary<String, Word>> translationCollection { get; set; } = new Dictionary<Language, Dictionary<String, Word>>();
 
 	}
 }

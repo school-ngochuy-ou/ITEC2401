@@ -19,8 +19,6 @@ namespace GroupProject {
 			w.id = "1";
 			w.definition = "definition";
 			w.type = WordType.VERB;
-			w.examples.Add("dictionaries.Add(Language.English, enDictionary);");
-			w.examples.Add("dictionaries.Add(Language.Vietnamese, vieDictionary);");
 			enDictionary.Add("1", w);
 
 			w = new Word();
@@ -28,9 +26,6 @@ namespace GroupProject {
 			w.name = "greeting";
 			w.definition = "greeting definition";
 			w.type = WordType.NOUN;
-			w.examples.Add("dictionaries.Add(Language.English, enDictionary);");
-			w.examples.Add("dictionaries.Add(Language.Vietnamese, vieDictionary);");
-			w.examples.Add("dictionaries.Add(Language.Vietnamese, vieDictionary);");
 			enDictionary.Add("2", w);
 
 			w = new Word();
@@ -38,9 +33,6 @@ namespace GroupProject {
 			w.id = "1";
 			w.definition = "Chào hỏi";
 			w.type = WordType.VERB;
-			w.examples.Add("dictionaries.Add(Language.English, enDictionary);");
-			w.examples.Add("dictionaries.Add(Language.Vietnamese, vieDictionary);");
-			w.examples.Add("dictionaries.Add(Language.Vietnamese, vieDictionary);");
 			vieDictionary.Add("1", w);
 
 			w = new Word();
@@ -48,8 +40,6 @@ namespace GroupProject {
 			w.name = "lời chào";
 			w.definition = "Lời chào hỏi";
 			w.type = WordType.NOUN;
-			w.examples.Add("dictionaries.Add(Language.English, enDictionary);");
-			w.examples.Add("dictionaries.Add(Language.Vietnamese, vieDictionary);");
 			vieDictionary.Add("2", w);
 
 			dictionaries.Add(Language.Vietnamese, vieDictionary);

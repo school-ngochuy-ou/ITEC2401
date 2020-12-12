@@ -72,6 +72,7 @@
       <DependentUpon>WordCollection.cs</DependentUpon>
     </Compile>
     <Compile Include="models\Language.cs" />
+    <Compile Include="models\Storage.cs" />
     <Compile Include="models\WordType.cs" />
     <Compile Include="models\Word.cs" />
     <Compile Include="Program.cs" />

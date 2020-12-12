@@ -30,8 +30,6 @@ namespace GroupProject.forms {
 			this.typeComboBox = new System.Windows.Forms.ComboBox();
 			this.label3 = new System.Windows.Forms.Label();
 			this.definitionTextBox = new System.Windows.Forms.TextBox();
-			this.label4 = new System.Windows.Forms.Label();
-			this.examplesTextBox = new System.Windows.Forms.TextBox();
 			this.okBtn = new System.Windows.Forms.Button();
 			this.cancelBtn = new System.Windows.Forms.Button();
 			this.label5 = new System.Windows.Forms.Label();
@@ -109,28 +107,6 @@ namespace GroupProject.forms {
 			this.definitionTextBox.TabIndex = 5;
 			this.definitionTextBox.TextChanged += new System.EventHandler(this.definitionTextBox_TextChanged);
 			// 
-			// label4
-			// 
-			this.label4.AutoSize = true;
-			this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label4.Location = new System.Drawing.Point(12, 148);
-			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(73, 18);
-			this.label4.TabIndex = 6;
-			this.label4.Text = "Examples";
-			// 
-			// examplesTextBox
-			// 
-			this.examplesTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.examplesTextBox.BackColor = System.Drawing.SystemColors.Window;
-			this.examplesTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.examplesTextBox.Location = new System.Drawing.Point(108, 143);
-			this.examplesTextBox.Multiline = true;
-			this.examplesTextBox.Name = "examplesTextBox";
-			this.examplesTextBox.Size = new System.Drawing.Size(483, 114);
-			this.examplesTextBox.TabIndex = 7;
-			// 
 			// okBtn
 			// 
 			this.okBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -138,7 +114,7 @@ namespace GroupProject.forms {
 			this.okBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.okBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.okBtn.ForeColor = System.Drawing.SystemColors.Control;
-			this.okBtn.Location = new System.Drawing.Point(501, 484);
+			this.okBtn.Location = new System.Drawing.Point(501, 379);
 			this.okBtn.Name = "okBtn";
 			this.okBtn.Size = new System.Drawing.Size(90, 33);
 			this.okBtn.TabIndex = 9;
@@ -153,7 +129,7 @@ namespace GroupProject.forms {
 			this.cancelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.cancelBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.cancelBtn.ForeColor = System.Drawing.SystemColors.Control;
-			this.cancelBtn.Location = new System.Drawing.Point(405, 484);
+			this.cancelBtn.Location = new System.Drawing.Point(405, 379);
 			this.cancelBtn.Name = "cancelBtn";
 			this.cancelBtn.Size = new System.Drawing.Size(90, 33);
 			this.cancelBtn.TabIndex = 10;
@@ -165,7 +141,7 @@ namespace GroupProject.forms {
 			// 
 			this.label5.AutoSize = true;
 			this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label5.Location = new System.Drawing.Point(12, 268);
+			this.label5.Location = new System.Drawing.Point(12, 146);
 			this.label5.Name = "label5";
 			this.label5.Size = new System.Drawing.Size(84, 18);
 			this.label5.TabIndex = 11;
@@ -179,7 +155,7 @@ namespace GroupProject.forms {
 			this.languageComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.languageComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.languageComboBox.FormattingEnabled = true;
-			this.languageComboBox.Location = new System.Drawing.Point(108, 265);
+			this.languageComboBox.Location = new System.Drawing.Point(108, 143);
 			this.languageComboBox.Name = "languageComboBox";
 			this.languageComboBox.Size = new System.Drawing.Size(483, 26);
 			this.languageComboBox.TabIndex = 12;
@@ -189,7 +165,7 @@ namespace GroupProject.forms {
 			// 
 			this.label6.AutoSize = true;
 			this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label6.Location = new System.Drawing.Point(75, 300);
+			this.label6.Location = new System.Drawing.Point(75, 178);
 			this.label6.Name = "label6";
 			this.label6.Size = new System.Drawing.Size(21, 18);
 			this.label6.TabIndex = 13;
@@ -203,9 +179,9 @@ namespace GroupProject.forms {
 			this.listBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.listBox.FormattingEnabled = true;
 			this.listBox.ItemHeight = 18;
-			this.listBox.Location = new System.Drawing.Point(108, 357);
+			this.listBox.Location = new System.Drawing.Point(108, 235);
 			this.listBox.Name = "listBox";
-			this.listBox.Size = new System.Drawing.Size(483, 112);
+			this.listBox.Size = new System.Drawing.Size(483, 130);
 			this.listBox.Sorted = true;
 			this.listBox.TabIndex = 14;
 			this.listBox.SelectedIndexChanged += new System.EventHandler(this.listBox_SelectedIndexChanged);
@@ -215,7 +191,7 @@ namespace GroupProject.forms {
 			this.searchTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.searchTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.searchTextBox.Location = new System.Drawing.Point(108, 327);
+			this.searchTextBox.Location = new System.Drawing.Point(108, 205);
 			this.searchTextBox.Name = "searchTextBox";
 			this.searchTextBox.Size = new System.Drawing.Size(483, 24);
 			this.searchTextBox.TabIndex = 15;
@@ -227,7 +203,7 @@ namespace GroupProject.forms {
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.translateChoiceTextBox.Enabled = false;
 			this.translateChoiceTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.translateChoiceTextBox.Location = new System.Drawing.Point(108, 297);
+			this.translateChoiceTextBox.Location = new System.Drawing.Point(108, 175);
 			this.translateChoiceTextBox.Name = "translateChoiceTextBox";
 			this.translateChoiceTextBox.ReadOnly = true;
 			this.translateChoiceTextBox.Size = new System.Drawing.Size(483, 24);
@@ -237,7 +213,7 @@ namespace GroupProject.forms {
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(603, 524);
+			this.ClientSize = new System.Drawing.Size(603, 424);
 			this.Controls.Add(this.translateChoiceTextBox);
 			this.Controls.Add(this.searchTextBox);
 			this.Controls.Add(this.listBox);
@@ -246,8 +222,6 @@ namespace GroupProject.forms {
 			this.Controls.Add(this.label5);
 			this.Controls.Add(this.cancelBtn);
 			this.Controls.Add(this.okBtn);
-			this.Controls.Add(this.examplesTextBox);
-			this.Controls.Add(this.label4);
 			this.Controls.Add(this.definitionTextBox);
 			this.Controls.Add(this.label3);
 			this.Controls.Add(this.typeComboBox);
@@ -269,8 +243,6 @@ namespace GroupProject.forms {
 		private System.Windows.Forms.ComboBox typeComboBox;
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.TextBox definitionTextBox;
-		private System.Windows.Forms.Label label4;
-		private System.Windows.Forms.TextBox examplesTextBox;
 		private System.Windows.Forms.Button okBtn;
 		private System.Windows.Forms.Button cancelBtn;
 		private System.Windows.Forms.Label label5;

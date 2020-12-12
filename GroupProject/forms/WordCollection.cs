@@ -5,6 +5,7 @@ using System.Linq;
 using GroupProject.models;
 
 namespace GroupProject.forms {
+
 	public partial class WordCollection : Form {
 
 		private Dictionary<String, Word> dict;
@@ -30,7 +31,7 @@ namespace GroupProject.forms {
 
 		private void languageComboBox_SelectedIndexChanged(object sender, EventArgs e) {
 			options.language = (Language) languageComboBox.SelectedItem;
-			dict = Program.dataSource.getDictionary(options.language);
+			dict = Program.store.getCollection(options.language);
 			renderDictionary();
 		}
 
@@ -70,11 +71,9 @@ namespace GroupProject.forms {
 				return;
 			}
 
-			String content = $"{word.name}\n{word.type}\n\nDefinition: {word.definition}\n\nExamples:\n";
+			richTextBox.Text = "";
 
-			foreach (String ex in word.examples) {
-				content += $"\t- {ex}\n";
-			}
+			String content = $"{word.name}\n{word.type}\n\nDefinition: {word.definition}\n\n";
 
 			int start = 0;
 
@@ -102,11 +101,6 @@ namespace GroupProject.forms {
 			richTextBox.SelectionStart = (start += richTextBox.SelectionLength + 2);
 			richTextBox.SelectionLength = 9;
 			richTextBox.SelectionFont = new System.Drawing.Font(richTextBox.SelectionFont.FontFamily, 13, System.Drawing.FontStyle.Italic);
-
-			richTextBox.SelectionStart = (start += 9);
-			richTextBox.SelectionLength = content.Length - (start + 1);
-			richTextBox.SelectionColor = System.Drawing.Color.Black;
-			richTextBox.SelectionFont = new System.Drawing.Font(richTextBox.SelectionFont.FontFamily, 13);
 		}
 
 		private void searchTextBox_TextChanged(object sender, EventArgs e) {
@@ -126,18 +120,20 @@ namespace GroupProject.forms {
 		}
 
 		internal void addWord(Word newWord) {
-			DictionarySource source = Program.dataSource;
+			Storage storage = Program.store;
 
-			source.addWord(options.language, newWord);
-			dict = source.getDictionary(options.language);
+			storage.addWord(options.language, newWord);
+			listBox.SelectedItem = newWord;
+			renderRichTextBox();
 			renderDictionary();
 		}
 
 		internal void editWord(Word word) {
-			DictionarySource source = Program.dataSource;
+			Storage storage = Program.store;
 
-			source.editWord(options.language, word);
-			dict = source.getDictionary(options.language);
+			storage.editWord(options.language, word);
+			listBox.SelectedItem = word;
+			renderRichTextBox();
 			renderDictionary();
 		}
 
@@ -162,10 +158,11 @@ namespace GroupProject.forms {
 			Word w = listBox.SelectedItem as Word;
 
 			if (MessageBox.Show($"Are you sure you want do delete the word '{w.name}'?", "Confirm action", MessageBoxButtons.YesNo) == DialogResult.Yes) {
-				DictionarySource source = Program.dataSource;
+				Storage store = Program.store;
 				
-				source.deleteWord(options.language, word);
-				dict = source.getDictionary(options.language);
+				store.deleteWord(options.language, word);
+				listBox.SelectedItem = dict.Values.First();
+				renderRichTextBox();
 				renderDictionary();
 			}
 		}
