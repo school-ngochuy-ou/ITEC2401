@@ -27,13 +27,13 @@ namespace GroupProject.forms {
 			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
 			this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.collectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.textBox1 = new System.Windows.Forms.TextBox();
+			this.searchTextBox = new System.Windows.Forms.TextBox();
 			this.button1 = new System.Windows.Forms.Button();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
 			this.searchEnglishRdBtn = new System.Windows.Forms.RadioButton();
 			this.searchVietnameseRdBtn = new System.Windows.Forms.RadioButton();
 			this.listBox = new System.Windows.Forms.ListBox();
-			this.panel1 = new System.Windows.Forms.Panel();
+			this.panel = new System.Windows.Forms.Panel();
 			this.menuStrip1.SuspendLayout();
 			this.groupBox1.SuspendLayout();
 			this.SuspendLayout();
@@ -59,19 +59,20 @@ namespace GroupProject.forms {
 			// collectionToolStripMenuItem
 			// 
 			this.collectionToolStripMenuItem.Name = "collectionToolStripMenuItem";
-			this.collectionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.collectionToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
 			this.collectionToolStripMenuItem.Text = "Collection";
 			this.collectionToolStripMenuItem.Click += new System.EventHandler(this.collectionToolStripMenuItem_Click);
 			// 
-			// textBox1
+			// searchTextBox
 			// 
-			this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+			this.searchTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.textBox1.Location = new System.Drawing.Point(6, 19);
-			this.textBox1.Name = "textBox1";
-			this.textBox1.Size = new System.Drawing.Size(590, 30);
-			this.textBox1.TabIndex = 1;
+			this.searchTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.searchTextBox.Location = new System.Drawing.Point(6, 19);
+			this.searchTextBox.Name = "searchTextBox";
+			this.searchTextBox.Size = new System.Drawing.Size(590, 30);
+			this.searchTextBox.TabIndex = 1;
+			this.searchTextBox.TextChanged += new System.EventHandler(this.searchTextBox_TextChanged);
 			// 
 			// button1
 			// 
@@ -93,7 +94,7 @@ namespace GroupProject.forms {
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.groupBox1.Controls.Add(this.searchEnglishRdBtn);
 			this.groupBox1.Controls.Add(this.searchVietnameseRdBtn);
-			this.groupBox1.Controls.Add(this.textBox1);
+			this.groupBox1.Controls.Add(this.searchTextBox);
 			this.groupBox1.Controls.Add(this.button1);
 			this.groupBox1.Location = new System.Drawing.Point(12, 27);
 			this.groupBox1.Name = "groupBox1";
@@ -111,6 +112,7 @@ namespace GroupProject.forms {
 			this.searchEnglishRdBtn.TabIndex = 4;
 			this.searchEnglishRdBtn.Text = "English";
 			this.searchEnglishRdBtn.UseVisualStyleBackColor = true;
+			this.searchEnglishRdBtn.CheckedChanged += new System.EventHandler(this.rdBtn_CheckedChanged);
 			// 
 			// searchVietnameseRdBtn
 			// 
@@ -123,23 +125,31 @@ namespace GroupProject.forms {
 			this.searchVietnameseRdBtn.TabStop = true;
 			this.searchVietnameseRdBtn.Text = "Vietnamese";
 			this.searchVietnameseRdBtn.UseVisualStyleBackColor = true;
+			this.searchVietnameseRdBtn.CheckedChanged += new System.EventHandler(this.rdBtn_CheckedChanged);
 			// 
 			// listBox
 			// 
 			this.listBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+			this.listBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.listBox.FormattingEnabled = true;
+			this.listBox.ItemHeight = 18;
 			this.listBox.Location = new System.Drawing.Point(12, 112);
 			this.listBox.Name = "listBox";
-			this.listBox.Size = new System.Drawing.Size(236, 511);
+			this.listBox.Size = new System.Drawing.Size(236, 508);
 			this.listBox.TabIndex = 4;
+			this.listBox.SelectedIndexChanged += new System.EventHandler(this.listBox_SelectedIndexChanged);
 			// 
-			// panel1
+			// panel
 			// 
-			this.panel1.Location = new System.Drawing.Point(254, 112);
-			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(446, 511);
-			this.panel1.TabIndex = 5;
+			this.panel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.panel.AutoScroll = true;
+			this.panel.Location = new System.Drawing.Point(254, 112);
+			this.panel.Name = "panel";
+			this.panel.Size = new System.Drawing.Size(452, 508);
+			this.panel.TabIndex = 5;
 			// 
 			// VietnameseEnglishDictionary
 			// 
@@ -147,13 +157,14 @@ namespace GroupProject.forms {
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.CausesValidation = false;
 			this.ClientSize = new System.Drawing.Size(718, 639);
-			this.Controls.Add(this.panel1);
+			this.Controls.Add(this.panel);
 			this.Controls.Add(this.listBox);
 			this.Controls.Add(this.groupBox1);
 			this.Controls.Add(this.menuStrip1);
 			this.MainMenuStrip = this.menuStrip1;
 			this.Name = "VietnameseEnglishDictionary";
 			this.Text = "Vietnamese-English Dictionary";
+			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.VietnameseEnglishDictionary_FormClosed);
 			this.menuStrip1.ResumeLayout(false);
 			this.menuStrip1.PerformLayout();
 			this.groupBox1.ResumeLayout(false);
@@ -167,13 +178,13 @@ namespace GroupProject.forms {
 
 		private System.Windows.Forms.MenuStrip menuStrip1;
 		private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
-		private System.Windows.Forms.TextBox textBox1;
+		private System.Windows.Forms.TextBox searchTextBox;
 		private System.Windows.Forms.Button button1;
 		private System.Windows.Forms.GroupBox groupBox1;
 		private System.Windows.Forms.RadioButton searchEnglishRdBtn;
 		private System.Windows.Forms.RadioButton searchVietnameseRdBtn;
 		private System.Windows.Forms.ListBox listBox;
-		private System.Windows.Forms.Panel panel1;
 		private System.Windows.Forms.ToolStripMenuItem collectionToolStripMenuItem;
+		private System.Windows.Forms.Panel panel;
 	}
 }

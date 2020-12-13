@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
 using System.Collections.Generic;
-using System.Linq;
 using GroupProject.models;
+using System.Linq;
 
 namespace GroupProject.forms {
 
@@ -19,6 +19,8 @@ namespace GroupProject.forms {
 		private Word word = new Word();
 
 		private Dictionary<String, Word> dict;
+		
+		private Language targetLanguage;
 
 		public WordView() {
 			InitializeComponent();
@@ -33,8 +35,10 @@ namespace GroupProject.forms {
 				languageComboBox.Items.Add(language);
 			}
 
-			listBox.DisplayMember = "name";
-			listBox.ValueMember = "id";
+			sourceListBox.ValueMember = "id";
+			sourceListBox.DisplayMember = "name";
+			translationListBox.ValueMember = "id";
+			translationListBox.DisplayMember = "name";
 		}
 
 		private void nameTextBox_TextChanged(object sender, EventArgs e) {
@@ -97,63 +101,111 @@ namespace GroupProject.forms {
 			nameTextBox.Text = word.name;
 			typeComboBox.SelectedItem = word.type;
 			definitionTextBox.Text = word.definition;
-			/*translateChoiceTextBox.Text = word.translation == null ? "" : word.translation.name;*/
 		}
 
 		private void languageComboBox_SelectedIndexChanged(object sender, EventArgs e) {
-			listBox.Items.Clear();
-
 			if (languageComboBox.SelectedItem == null) {
 				dict = null;
 
 				return;
 			}
 
-			Language language = (Language) languageComboBox.SelectedItem;
-
-			dict = Program.store.getCollection(language);
-			renderDictionary();
+			dict = Program.store.getCollection(targetLanguage = (Language) languageComboBox.SelectedItem);
+			renderSourceListBox();
+			renderTranslationListBox();
 		}
 
-		private void renderDictionary() {
-			if (dict == null) {
-				listBox.Items.Clear();
+		private void renderSourceListBox() {
+			sourceListBox.Items.Clear();
 
-				return;
-			}
-
-			foreach (Word word in dict.Values) {
-				listBox.Items.Add(word);
+			foreach(Word word in dict.Values) {
+				sourceListBox.Items.Add(word);
 			}
 		}
 
-		private void listBox_SelectedIndexChanged(object sender, EventArgs e) {
-			if (listBox.SelectedItem == null) {
+		private void renderTranslationListBox() {
+			translationListBox.Items.Clear();
+
+			if (!word.translationCollection.ContainsKey(targetLanguage)) {
 				return;
 			}
 
-			/*word.translation = listBox.SelectedItem as Word;*/
-			translateChoiceTextBox.Text = (listBox.SelectedItem as Word).name;
+			foreach(Word word in word.translationCollection[targetLanguage].Values) {
+				translationListBox.Items.Add(word);
+			}
 		}
 
-		private void searchTextBox_TextChanged(object sender, EventArgs e) {
-			listBox.Items.Clear();
-
-			if (languageComboBox.SelectedItem == null) {
-				
+		private void addTranslationBtn_Click(object sender, EventArgs e) {
+			if (sourceListBox.SelectedItems.Count == 0) {
 				return;
 			}
 
-			String keyword = searchTextBox.Text;
+			foreach (Word word in sourceListBox.SelectedItems) {
+				if (translationListBox.Items.Contains(word)) {
+					continue;
+				}
 
-			if (keyword.Length == 0) {
-				dict = Program.store.getCollection((Language) languageComboBox.SelectedItem);
-				renderDictionary();
+				try {
+					this.word.translationCollection[targetLanguage].Add(word.id, word);
+				} catch(Exception) {
+					this.word.translationCollection.Add(targetLanguage, new Dictionary<String, Word>());
+					this.word.translationCollection[targetLanguage].Add(word.id, word);
+				}
+
+				translationListBox.Items.Add(word);
+			}
+		}
+
+		private void removeTranslationBtn_Click(object sender, EventArgs e) {
+			if (translationListBox.SelectedItems.Count == 0) {
+				return;
+			}
+			
+			List<Word> selected = new List<Word>();
+
+			foreach (Word word in translationListBox.SelectedItems) {
+				selected.Add(word);
+			}
+
+			translationListBox.ClearSelected();
+
+			foreach (Word word in selected) {
+				translationListBox.Items.Remove(word);
+				this.word.translationCollection[targetLanguage].Remove(word.id);
+			}
+		}
+
+		private void sourceSearchTextBox_TextChanged(object sender, EventArgs e) {
+			String keyword;
+
+			if((keyword = sourceSearchTextBox.Text).Length == 0) {
+				renderSourceListBox();
 				return;
 			}
 
-			foreach (Word word in dict.Values.Where(w => w.name.Contains(keyword))) {
-				listBox.Items.Add(word);
+			sourceListBox.Items.Clear();
+
+			foreach(Word word in dict.Values.Where(w => w.name.Contains(sourceSearchTextBox.Text))) {
+				sourceListBox.Items.Add(word);
+			}
+		}
+
+		private void translationSearchTextBox_TextChanged(object sender, EventArgs e) {
+			String keyword;
+
+			if((keyword = translationSearchTextBox.Text).Length == 0) {
+				renderTranslationListBox();
+				return;
+			}
+
+			translationListBox.Items.Clear();
+
+			if (!word.translationCollection.ContainsKey(targetLanguage)) {
+				return;
+			}
+
+			foreach(Word word in this.word.translationCollection[targetLanguage].Values.Where(w => w.name.Contains(keyword))) {
+				translationListBox.Items.Add(word);
 			}
 		}
 	}

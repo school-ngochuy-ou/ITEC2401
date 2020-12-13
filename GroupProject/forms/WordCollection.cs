@@ -74,7 +74,6 @@ namespace GroupProject.forms {
 			richTextBox.Text = "";
 
 			String content = $"{word.name}\n{word.type}\n\nDefinition: {word.definition}\n\n";
-
 			int start = 0;
 
 			richTextBox.Text = content;

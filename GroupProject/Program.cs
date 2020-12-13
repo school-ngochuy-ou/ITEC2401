@@ -9,6 +9,8 @@ namespace GroupProject {
 
         public static Storage store = new Storage();
 
+        public static Form home;
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -16,7 +18,11 @@ namespace GroupProject {
         static void Main() {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Home());
+
+            Home home = new Home();
+
+            Program.home = home;
+            Application.Run(home);
         }
 
     }

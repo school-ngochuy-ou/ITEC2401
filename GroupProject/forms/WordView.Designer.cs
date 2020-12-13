@@ -34,10 +34,14 @@ namespace GroupProject.forms {
 			this.cancelBtn = new System.Windows.Forms.Button();
 			this.label5 = new System.Windows.Forms.Label();
 			this.languageComboBox = new System.Windows.Forms.ComboBox();
+			this.sourceListBox = new System.Windows.Forms.ListBox();
+			this.translationListBox = new System.Windows.Forms.ListBox();
+			this.addTranslationBtn = new System.Windows.Forms.Button();
+			this.removeTranslationBtn = new System.Windows.Forms.Button();
+			this.label4 = new System.Windows.Forms.Label();
 			this.label6 = new System.Windows.Forms.Label();
-			this.listBox = new System.Windows.Forms.ListBox();
-			this.searchTextBox = new System.Windows.Forms.TextBox();
-			this.translateChoiceTextBox = new System.Windows.Forms.TextBox();
+			this.sourceSearchTextBox = new System.Windows.Forms.TextBox();
+			this.translationSearchTextBox = new System.Windows.Forms.TextBox();
 			this.SuspendLayout();
 			// 
 			// label1
@@ -114,7 +118,7 @@ namespace GroupProject.forms {
 			this.okBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.okBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.okBtn.ForeColor = System.Drawing.SystemColors.Control;
-			this.okBtn.Location = new System.Drawing.Point(501, 379);
+			this.okBtn.Location = new System.Drawing.Point(501, 504);
 			this.okBtn.Name = "okBtn";
 			this.okBtn.Size = new System.Drawing.Size(90, 33);
 			this.okBtn.TabIndex = 9;
@@ -129,7 +133,7 @@ namespace GroupProject.forms {
 			this.cancelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.cancelBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.cancelBtn.ForeColor = System.Drawing.SystemColors.Control;
-			this.cancelBtn.Location = new System.Drawing.Point(405, 379);
+			this.cancelBtn.Location = new System.Drawing.Point(405, 504);
 			this.cancelBtn.Name = "cancelBtn";
 			this.cancelBtn.Size = new System.Drawing.Size(90, 33);
 			this.cancelBtn.TabIndex = 10;
@@ -161,63 +165,108 @@ namespace GroupProject.forms {
 			this.languageComboBox.TabIndex = 12;
 			this.languageComboBox.SelectedIndexChanged += new System.EventHandler(this.languageComboBox_SelectedIndexChanged);
 			// 
+			// sourceListBox
+			// 
+			this.sourceListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.sourceListBox.FormattingEnabled = true;
+			this.sourceListBox.ItemHeight = 18;
+			this.sourceListBox.Location = new System.Drawing.Point(108, 193);
+			this.sourceListBox.Name = "sourceListBox";
+			this.sourceListBox.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
+			this.sourceListBox.Size = new System.Drawing.Size(219, 274);
+			this.sourceListBox.TabIndex = 13;
+			// 
+			// translationListBox
+			// 
+			this.translationListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.translationListBox.FormattingEnabled = true;
+			this.translationListBox.ItemHeight = 18;
+			this.translationListBox.Location = new System.Drawing.Point(372, 193);
+			this.translationListBox.Name = "translationListBox";
+			this.translationListBox.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
+			this.translationListBox.Size = new System.Drawing.Size(219, 274);
+			this.translationListBox.TabIndex = 14;
+			// 
+			// addTranslationBtn
+			// 
+			this.addTranslationBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.addTranslationBtn.Location = new System.Drawing.Point(333, 288);
+			this.addTranslationBtn.Name = "addTranslationBtn";
+			this.addTranslationBtn.Size = new System.Drawing.Size(33, 36);
+			this.addTranslationBtn.TabIndex = 15;
+			this.addTranslationBtn.Text = ">>";
+			this.addTranslationBtn.UseVisualStyleBackColor = true;
+			this.addTranslationBtn.Click += new System.EventHandler(this.addTranslationBtn_Click);
+			// 
+			// removeTranslationBtn
+			// 
+			this.removeTranslationBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.removeTranslationBtn.Location = new System.Drawing.Point(333, 338);
+			this.removeTranslationBtn.Name = "removeTranslationBtn";
+			this.removeTranslationBtn.Size = new System.Drawing.Size(33, 36);
+			this.removeTranslationBtn.TabIndex = 16;
+			this.removeTranslationBtn.Text = "<<";
+			this.removeTranslationBtn.UseVisualStyleBackColor = true;
+			this.removeTranslationBtn.Click += new System.EventHandler(this.removeTranslationBtn_Click);
+			// 
+			// label4
+			// 
+			this.label4.AutoSize = true;
+			this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label4.ForeColor = System.Drawing.SystemColors.ControlDark;
+			this.label4.Location = new System.Drawing.Point(105, 172);
+			this.label4.Name = "label4";
+			this.label4.Size = new System.Drawing.Size(49, 18);
+			this.label4.TabIndex = 17;
+			this.label4.Text = "Select";
+			// 
 			// label6
 			// 
 			this.label6.AutoSize = true;
+			this.label6.BackColor = System.Drawing.SystemColors.Control;
 			this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label6.Location = new System.Drawing.Point(75, 178);
+			this.label6.ForeColor = System.Drawing.SystemColors.ControlDark;
+			this.label6.Location = new System.Drawing.Point(369, 172);
 			this.label6.Name = "label6";
-			this.label6.Size = new System.Drawing.Size(21, 18);
-			this.label6.TabIndex = 13;
-			this.label6.Text = "to";
+			this.label6.Size = new System.Drawing.Size(81, 18);
+			this.label6.TabIndex = 18;
+			this.label6.Text = "Translation";
 			// 
-			// listBox
+			// sourceSearchTextBox
 			// 
-			this.listBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+			this.sourceSearchTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.listBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.listBox.FormattingEnabled = true;
-			this.listBox.ItemHeight = 18;
-			this.listBox.Location = new System.Drawing.Point(108, 235);
-			this.listBox.Name = "listBox";
-			this.listBox.Size = new System.Drawing.Size(483, 130);
-			this.listBox.Sorted = true;
-			this.listBox.TabIndex = 14;
-			this.listBox.SelectedIndexChanged += new System.EventHandler(this.listBox_SelectedIndexChanged);
+			this.sourceSearchTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.sourceSearchTextBox.Location = new System.Drawing.Point(108, 474);
+			this.sourceSearchTextBox.Name = "sourceSearchTextBox";
+			this.sourceSearchTextBox.Size = new System.Drawing.Size(219, 24);
+			this.sourceSearchTextBox.TabIndex = 19;
+			this.sourceSearchTextBox.TextChanged += new System.EventHandler(this.sourceSearchTextBox_TextChanged);
 			// 
-			// searchTextBox
+			// translationSearchTextBox
 			// 
-			this.searchTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+			this.translationSearchTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.searchTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.searchTextBox.Location = new System.Drawing.Point(108, 205);
-			this.searchTextBox.Name = "searchTextBox";
-			this.searchTextBox.Size = new System.Drawing.Size(483, 24);
-			this.searchTextBox.TabIndex = 15;
-			this.searchTextBox.TextChanged += new System.EventHandler(this.searchTextBox_TextChanged);
-			// 
-			// translateChoiceTextBox
-			// 
-			this.translateChoiceTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.translateChoiceTextBox.Enabled = false;
-			this.translateChoiceTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.translateChoiceTextBox.Location = new System.Drawing.Point(108, 175);
-			this.translateChoiceTextBox.Name = "translateChoiceTextBox";
-			this.translateChoiceTextBox.ReadOnly = true;
-			this.translateChoiceTextBox.Size = new System.Drawing.Size(483, 24);
-			this.translateChoiceTextBox.TabIndex = 16;
+			this.translationSearchTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.translationSearchTextBox.Location = new System.Drawing.Point(372, 474);
+			this.translationSearchTextBox.Name = "translationSearchTextBox";
+			this.translationSearchTextBox.Size = new System.Drawing.Size(219, 24);
+			this.translationSearchTextBox.TabIndex = 20;
+			this.translationSearchTextBox.TextChanged += new System.EventHandler(this.translationSearchTextBox_TextChanged);
 			// 
 			// WordView
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(603, 424);
-			this.Controls.Add(this.translateChoiceTextBox);
-			this.Controls.Add(this.searchTextBox);
-			this.Controls.Add(this.listBox);
+			this.ClientSize = new System.Drawing.Size(603, 549);
+			this.Controls.Add(this.translationSearchTextBox);
+			this.Controls.Add(this.sourceSearchTextBox);
 			this.Controls.Add(this.label6);
+			this.Controls.Add(this.label4);
+			this.Controls.Add(this.removeTranslationBtn);
+			this.Controls.Add(this.addTranslationBtn);
+			this.Controls.Add(this.translationListBox);
+			this.Controls.Add(this.sourceListBox);
 			this.Controls.Add(this.languageComboBox);
 			this.Controls.Add(this.label5);
 			this.Controls.Add(this.cancelBtn);
@@ -247,9 +296,13 @@ namespace GroupProject.forms {
 		private System.Windows.Forms.Button cancelBtn;
 		private System.Windows.Forms.Label label5;
 		private System.Windows.Forms.ComboBox languageComboBox;
+		private System.Windows.Forms.ListBox sourceListBox;
+		private System.Windows.Forms.ListBox translationListBox;
+		private System.Windows.Forms.Button addTranslationBtn;
+		private System.Windows.Forms.Button removeTranslationBtn;
+		private System.Windows.Forms.Label label4;
 		private System.Windows.Forms.Label label6;
-		private System.Windows.Forms.ListBox listBox;
-		private System.Windows.Forms.TextBox searchTextBox;
-		private System.Windows.Forms.TextBox translateChoiceTextBox;
+		private System.Windows.Forms.TextBox sourceSearchTextBox;
+		private System.Windows.Forms.TextBox translationSearchTextBox;
 	}
 }

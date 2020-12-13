@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
-using System.Text.RegularExpressions;
 
 namespace GroupProject.models {
 
@@ -23,27 +23,27 @@ namespace GroupProject.models {
 				Directory.CreateDirectory(storageLocation);
 			}
 
-			Metamodel model = new Metamodel();
+			Metamodel meta = new Metamodel();
 
-			model.storageFilename = "vie.txt";
-			model.lang = Language.Vietnamese;
-			metamodels.Add(Language.Vietnamese, model);
+			meta.storageFilename = "vie.txt";
+			meta.lang = Language.Vietnamese;
+			metamodels.Add(Language.Vietnamese, meta);
 
-			model = new Metamodel();
-			model.storageFilename = "en.txt";
-			model.lang = Language.English;
-			metamodels.Add(Language.English, model);
+			meta = new Metamodel();
+			meta.storageFilename = "en.txt";
+			meta.lang = Language.English;
+			metamodels.Add(Language.English, meta);
 
-			foreach (Metamodel meta in metamodels.Values) {
-				if (!File.Exists($"{storageLocation}{meta.storageFilename}")) {
-					StreamWriter writer = File.CreateText($"{storageLocation}{meta.storageFilename}");
+			foreach (Metamodel metamodel in metamodels.Values) {
+				if (!File.Exists($"{storageLocation}{metamodel.storageFilename}")) {
+					StreamWriter writer = File.CreateText($"{storageLocation}{metamodel.storageFilename}");
 
 					writer.WriteLine("0");
 					writer.Flush();
 					writer.Close();
 				}
 
-				collections.Add(meta.lang, read(meta.lang));
+				collections.Add(metamodel.lang, read(metamodel.lang));
 			}
 
 			mapTranslations();
@@ -103,10 +103,11 @@ namespace GroupProject.models {
 						}
 
 						targetedLang = (Language) Enum.Parse(typeof(Language), entryParts[0]);
-						translation = collections[targetedLang][entryParts[1]];
 
-						if(translation == null) {
-							throw new Exception($"Word with identifier {entryParts[1]} not found in language {targetedLang}");
+						try {
+							translation = collections[targetedLang][entryParts[1]];
+						} catch (Exception) {
+							continue;
 						}
 
 						if (!word.translationCollection.ContainsKey(targetedLang)) {
@@ -150,8 +151,14 @@ namespace GroupProject.models {
 			String path = $"{storageLocation}{meta.storageFilename}";
 			String content = meta.nextId.ToString() + File.ReadAllText(path).Substring(currentId.ToString().Length);
 			StreamWriter writer = File.CreateText(path);
+			List<String> translationEntries = new List<String>();
 
-			writer.Write($"{content}\n'{word.id}','{word.name}','{word.definition}',E'{word.type}',[]");
+			foreach (Language translationLanguage in word.translationCollection.Keys) {
+				translationEntries.Add(String.Join("|", word.translationCollection[translationLanguage]
+					.Values.Select(w => $"{translationLanguage}@{w.id}")));
+			}
+
+			writer.Write($"{content}\n'{word.id}','{word.name}','{word.definition}',E'{word.type}',[{String.Join("|", translationEntries)}]");
 			writer.Flush();
 			writer.Close();
 			collections[lang].Add(word.id, word);
@@ -172,7 +179,14 @@ namespace GroupProject.models {
 				line = lines[i];
 
 				if (line.Split(',')[0].Split('\'')[1] == word.id) {
-					lines[i] = $"'{word.id}','{word.name}','{word.definition}',E'{word.type}',[]";
+					List<String> translationEntries = new List<String>();
+
+					foreach(Language translationLanguage in word.translationCollection.Keys) {
+						translationEntries.Add(String.Join("|", word.translationCollection[translationLanguage]
+							.Values.Select(w => $"{translationLanguage}@{w.id}")));
+					}
+
+					lines[i] = $"'{word.id}','{word.name}','{word.definition}',E'{word.type}',[{String.Join("|", translationEntries)}]";
 					break;
 				}
 			}
